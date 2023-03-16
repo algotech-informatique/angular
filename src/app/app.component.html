@@ -1,0 +1,143 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf='connected'>
+    <button (click)="searchData()">
+        Search SO Data
+    </button>
+
+    <button (click)="getPageByKey()">
+        Get Page By Key
+    </button>
+
+    <button (click)="getPageByModel()">
+        Get Page By Sn Model
+    </button>
+
+    <button (click)="getFilterProp()">
+        Get Filter Prop
+    </button>
+
+    <button (click)="validateLogin()">
+        Validate Block Login
+    </button>
+
+    <button (click)="validatePasswordAdmin()">
+        Validate Admin Password modify
+    </button>
+
+    <button (click)="checkMailNotify()">
+        Test notify
+    </button>
+
+    <button (click)="checkEmbebdedLink()">
+        Test SmartLink Link
+    </button>
+
+    <button (click)="sendMailTOken()">
+        Send Mail Token
+    </button>
+
+    <button (click)="checkSmartTaskLog()">
+        Check SmartTask Log
+    </button>
+
+    <button (click)="deleteSmartTask()">
+        Delete SmartTask
+    </button>
+
+
+    <button (click)="deleteFlowKey()">
+        Delete by FlowKey
+    </button>
+
+    <button (click)="getApplicationModels()">
+        Get Application Models
+    </button>
+
+    <button (click)="getApplicationModelsByKey()">
+        Get Application Models By Key
+    </button>
+
+    <button (click)="load()">
+        Loader & Update Cache
+    </button>
+
+    <button (click)="geolocation()">
+        Geolocation
+    </button>
+
+    <button (click)="testDocumentByName()">
+        Document By Name
+    </button>
+    
+    <button (click)="cacheSearchByProperty()">
+        cache: SearchByProperty
+    </button>
+    
+    <button (click)="cacheSmartFlows()">
+        cache: SmartFlows
+    </button>
+    
+    <button (click)="getGenericList()">
+        Test Generic List
+    </button>
+    
+    <div>
+        {{result}}
+    </div>
+
+    <button (click)="testQuerySearch()">
+        Test Query Search
+    </button>
+
+    <label for="myfile">Select a file:</label>
+    <input type="file" (change)="testImport($event)" accept=".csv">
+</div>
+
+<button (click)="adminConsole()">
+    Admin Console
+</button>
+
+<button *ngIf='connected' (click)="accountConsole()">
+    Account Console
+</button>
+
+<button *ngIf='!connected' (click)="connect()">
+    connect
+</button>
+
+<button *ngIf='connected' (click)="disconnect()">
+    disconnect
+</button>
+
+<button (click)="getGroups()">
+    get groups
+</button>
+
+<button (click)="load()">
+    Load
+</button>
+
+<button (click)="socketStart()">
+    Socket
+</button>
+
+<button (click)="isAuthenticated()">
+    isAuthenticated
+</button>
+
+<button (click)="refreshToken()">
+    RefreshToken
+</button>
+
+<div>
+    <label for="myfile">Import i18n:</label>
+    <input type="file" (change)="importI18nFile($event)" accept=".csv">
+</div>
+
+<button (click)="exportI18nFile()">
+    Export i18n
+</button>
+
+<div>
+    {{result}}
+</div>

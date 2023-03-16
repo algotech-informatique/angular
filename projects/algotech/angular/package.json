@@ -1,0 +1,16 @@
+{
+    "name": "@algotech/angular",
+    "version": "1.0.349",
+    "dependencies": {
+        "@ionic/storage": "3.0.6",
+        "@ionic/storage-angular": "3.0.6",
+        "@capacitor/geolocation": "4.1.0",
+        "@capacitor/network": "4.1.0",
+        "rxjs-websockets": "6.0.3",
+        "fast-json-patch": "3.0.0-1",
+        "queueing-subject": "0.3.4"
+    },
+    "peerDependencies": {
+        "rxjs": "7.8.0"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../../../dist/algotech/angular",
+    "lib": {
+        "entryFile": "src/public_api.ts"
+    },
+    "allowedNonPeerDependencies": [
+        "@ionic/storage",
+        "@ionic/storage-angular",
+        "@capacitor/geolocation",
+        "@capacitor/network",
+        "rxjs-websockets",
+        "fast-json-patch",
+        "queueing-subject"
+    ]
+}
