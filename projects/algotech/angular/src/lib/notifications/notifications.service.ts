@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../base/base.service';
 import { HttpClient } from '@angular/common/http';
-import { NotificationDto } from '@algotech/core';
+import { NotificationDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, zip, of, throwError } from 'rxjs';

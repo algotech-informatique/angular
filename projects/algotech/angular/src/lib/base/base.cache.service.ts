@@ -2,7 +2,7 @@ import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { PairDto, BaseModel, CacheDto } from '@algotech/core';
+import { PairDto, BaseModel, CacheDto } from '@algotech-ce/core';
 import { Observable, of, throwError, zip } from 'rxjs';
 import { flatMap, catchError, map, mergeMap } from 'rxjs/operators';
 import * as _ from 'lodash';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { SnModelDto } from '@algotech/core';
+import { SnModelDto } from '@algotech-ce/core';
 import { BaseService } from '../base/base.service';
 import { EnvService } from '../base/env.service';
 import { BaseCacheService } from '../base/base.cache.service';

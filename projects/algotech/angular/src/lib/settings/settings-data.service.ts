@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, zip } from 'rxjs';
 import { SettingsDto, PatchPropertyDto, WorkflowModelDto, SmartModelDto, GenericListDto, GroupDto, TagListDto,
-    ApplicationModelDto } from '@algotech/core';
+    ApplicationModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { map } from 'rxjs/operators';
 import { SettingsService } from './settings.service';
-import { PatchService } from '@algotech/core';
+import { PatchService } from '@algotech-ce/core';
 import { WorkflowModelsService } from '../workflow-models/workflow-models.service';
 import { GenericListsService } from '../glists/glists.service';
 import { SmartModelsService } from '../smart-models/smart-models.service';

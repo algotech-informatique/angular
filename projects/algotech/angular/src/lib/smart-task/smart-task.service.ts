@@ -1,4 +1,4 @@
-import { PairDto, SmartTaskDto, SmartTaskLogDto, SmartTaskPeriodicityDto, UserDto } from '@algotech/core';
+import { PairDto, SmartTaskDto, SmartTaskLogDto, SmartTaskPeriodicityDto, UserDto } from '@algotech-ce/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';

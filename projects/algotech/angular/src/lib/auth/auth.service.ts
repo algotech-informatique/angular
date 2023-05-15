@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { from, Observable, of, Subject, Subscription } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
-import { UserDto } from '@algotech/core';
+import { UserDto } from '@algotech-ce/core';
 import { LocalProfil } from '../models/local-profil';
 import * as _ from 'lodash';
 import { KeycloakService, KeycloakEventType } from 'keycloak-angular';

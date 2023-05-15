@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GenericListDto, GenericListValueDto } from '@algotech/core';
+import { GenericListDto, GenericListValueDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { TranslateLangDtoService } from '../@services/translate-lang-dto.service';
 import { SettingsDataService } from '../settings/settings-data.service';

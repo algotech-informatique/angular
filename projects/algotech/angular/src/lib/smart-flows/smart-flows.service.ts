@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataService } from '../base/data-service';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpSentEvent } from '@angular/common/http';
-import { WorkflowModelDto, WorkflowLaunchOptionsDto, SmartObjectDto, SmartFlowResultDto } from '@algotech/core';
+import { WorkflowModelDto, WorkflowLaunchOptionsDto, SmartObjectDto, SmartFlowResultDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { Observable, of, zip } from 'rxjs';
 import { flatMap, catchError, map, mergeMap } from 'rxjs/operators';

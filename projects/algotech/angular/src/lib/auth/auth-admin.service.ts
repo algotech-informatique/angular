@@ -1,4 +1,4 @@
-import { EMailDto, ResetPasswordAdminDto, UserDto, ValidateUserDto } from '@algotech/core';
+import { EMailDto, UserDto, ValidateUserDto } from '@algotech-ce/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -17,24 +17,6 @@ export class AuthAdminService extends BaseService<UserDto> {
 
         super(authService, http, env);
         this.serviceUrl = '/auth';
-    }
-
-    public resetPasswordByAdmin(newPassword: string, sendMail: boolean, userUuid: string): Observable<boolean> {
-        const resetPassword: ResetPasswordAdminDto = {
-            url:  window.location.origin.replace('localhost', '127.0.0.1'),
-            newPassword: newPassword,
-            userUuid: userUuid,
-            sendMail: sendMail,
-        };
-
-        return this.obsHeaders()
-            .pipe(
-                flatMap((headers: HttpHeaders) => {
-                    return this.http.post(`${this.api}${this.serviceUrl}/resetPasswordAdmin`, resetPassword, { headers });
-                }),
-                catchError((error: HttpErrorResponse) =>
-                    this.handleError(this.resetPasswordByAdmin(newPassword, sendMail, userUuid), error))
-        );
     }
 
     public validateTokenUser(login: string, password: string, endToken: number): Observable<string> {

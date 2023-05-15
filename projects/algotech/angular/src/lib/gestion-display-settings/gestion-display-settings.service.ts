@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { SettingsDataService } from '../settings/settings-data.service';
 import { SmartObjectDto, SmartModelDto, SmartPropertyModelDto,
-    PlanGeneralDisplayPropertyDto } from '@algotech/core';
+    PlanGeneralDisplayPropertyDto, 
+    SmartPropertyObjectDto} from '@algotech-ce/core';
 import * as _ from 'lodash';
-import { flatMap, catchError } from 'rxjs/operators';
+import { flatMap, catchError, mergeMap } from 'rxjs/operators';
 import { Observable, of} from 'rxjs';
 import { SmartObjectsService } from '../smart-objects/smart-objects.service';
 
@@ -39,11 +40,45 @@ export class GestionDisplaySettingsService {
 
         const settings: PlanGeneralDisplayPropertyDto =
             _.find(this.settingsDataService.settings.plan.general.displayPlanSO.propertyList, { name });
-        if (!settings || !so) { return of(null); }
+
+        if (!settings || !so) {
+            return of(null);
+        }
+
         const propSetting = _.find(settings.smartModel, { smModel: so.modelKey });
-        if (!propSetting) { return of(null); }
+        if (!propSetting) {
+            return this.validateDisplayFromSmartObject(so, name);
+        }
         const prop = _.find(so.properties, { key: propSetting.smField });
         if (!prop) {return of(null); }
+
+        return this.getDisplayValue(so, prop, name, findSo);
+    }
+
+    private validateDisplayFromSmartObject(so: SmartObjectDto, name: 'primary' | 'secondary' | 'tertiary' | 'icon'): Observable<string> {
+
+        const smartModel: SmartModelDto = _.find(this.settingsDataService.smartmodels, (sm: SmartModelDto) => sm.key === so.modelKey);
+        if (!smartModel) {
+            return of(null);
+        }
+        
+        if (name ==='icon') {
+            return of(null);
+        }
+
+        const order = (name === 'primary') ? 0 :
+            (name === 'secondary') ? 1 : 2;
+
+        const prop: SmartPropertyModelDto = smartModel.properties.filter((p) => 
+            !p.hidden && ['html', 'sys:comment', 'object'].indexOf(p.keyType) === -1)[order];
+        return (prop) ? 
+            this.getDisplayValue(so, so.properties.find((p) => p.key.toUpperCase() === prop.key.toUpperCase()), name) :
+            of (null);
+
+    }
+
+    private getDisplayValue(so: SmartObjectDto, prop: SmartPropertyObjectDto, name: 'primary' | 'secondary' | 'tertiary' | 'icon', 
+        findSo?: (uuid: string) => Observable<SmartObjectDto>): Observable<string> {
 
         const isTable = _.isArray(prop.value) ? true : false;
         if (isTable) { return of(null); }
@@ -51,7 +86,7 @@ export class GestionDisplaySettingsService {
         if (this.isUUID(prop.value)) {
             const obs = findSo ? findSo(prop.value) : this.smartObjectsService.get(prop.value);
             return obs.pipe(
-                flatMap((childSo: SmartObjectDto) => {
+                mergeMap((childSo: SmartObjectDto) => {
                     return this.validateNameFromSettings(childSo, 'primary', findSo);
                 }),
                 catchError(() => of(this.validateDisplayedValue(prop.value, name))),

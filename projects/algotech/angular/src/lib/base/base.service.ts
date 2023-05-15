@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { flatMap } from 'rxjs/operators';
-import { PatchPropertyDto, PairDto } from '@algotech/core';
+import { PatchPropertyDto, PairDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { EnvService } from './env.service';
 

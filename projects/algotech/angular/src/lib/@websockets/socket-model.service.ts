@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SocketManager } from './socket-manager.service';
 import * as _ from 'lodash';
-import { PatchPropertyDto, WsUserDto } from '@algotech/core';
+import { PatchPropertyDto, WsUserDto } from '@algotech-ce/core';
 
 @Injectable({
     providedIn: 'root'

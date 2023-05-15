@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import {
     ApplicationModelsService, AuthAdminService, AuthService, DocumentsService, GeoLocationService, GroupsService, LoaderService, NetworkService, SmartFlowsService, SmartLinkService, SmartObjectsService,
-    SmartTasksService, SocketManager, UsersService, WorkflowModelsService, I18nImportService, RxExtendService,
+    SmartTasksService, SocketManager, UsersService, WorkflowModelsService, I18nImportService, RxExtendService, GestionDisplaySettingsService,
 } from '../../projects/algotech/angular/src/public_api';
 import {
     EMailDto, SmartLinkDto, PageModelDto, PairDto,
     SmartObjectDto, UserDto, WorkflowModelDto, SmartTaskLogDto, ApplicationModelDto, DocumentDto, SearchSODto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { PageModelsService } from '../../projects/algotech/angular/src/lib/page-models/page-models.service';
 import { mergeMap, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { zip } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -39,6 +40,7 @@ export class AppComponent {
         private groupsService: GroupsService,
         private socket: SocketManager,
         private i18nService: I18nImportService,
+        private gestionDisplaySettingsService: GestionDisplaySettingsService,
     ) {
         this.connected = this.authService.isAuthenticated;
     }
@@ -61,14 +63,6 @@ export class AppComponent {
 
     deleteFlowKey() {
         return this.smartTaskService.deleteByFlowKey('task_notify_pcreator')
-            .pipe(
-            ).subscribe((data) => {
-                console.log('data', data);
-            });
-    }
-
-    validatePasswordAdmin() {
-        return this.authServiceAdmin.resetPasswordByAdmin('123459', true, 'a4ebebca-7d3b-6937-d138-a114247ae606')
             .pipe(
             ).subscribe((data) => {
                 console.log('data', data);
@@ -310,5 +304,20 @@ export class AppComponent {
                 console.log('Import data', data);
 
         });
+    }
+
+    getDisplaySettings() {
+        this.smartObjectsService.getByModel('test_primary').pipe(
+            mergeMap((data: SmartObjectDto[]) => {
+                return zip(
+                    this.gestionDisplaySettingsService.validateNameFromSettings(data[0], 'primary'),
+                    this.gestionDisplaySettingsService.validateNameFromSettings(data[0], 'secondary'),
+                    this.gestionDisplaySettingsService.validateNameFromSettings(data[0], 'tertiary'),
+                );
+            }),
+        ).subscribe((result) => {
+            console.log('result', result);
+            this.result = result;
+        });        
     }
 }

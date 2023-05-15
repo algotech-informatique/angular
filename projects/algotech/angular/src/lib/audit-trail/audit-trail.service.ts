@@ -1,4 +1,4 @@
-import { CustomerDto, Metadata } from '@algotech/core';
+import { CustomerDto, Metadata } from '@algotech-ce/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

@@ -1,7 +1,7 @@
 import { flatMap, catchError } from 'rxjs/operators';
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { UserDto } from '@algotech/core';
+import { UserDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { BaseService } from '../base/base.service';
 import { DataService } from '../base/data-service';

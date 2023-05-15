@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { GestionDisplaySettingsService } from '../gestion-display-settings/gestion-display-settings.service';
 

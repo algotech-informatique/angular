@@ -155,7 +155,7 @@
                 }
             }
         },
-        "@algotech/angular": {
+        "@algotech-ce/angular": {
             "root": "projects/algotech/angular",
             "sourceRoot": "projects/algotech/angular/src",
             "projectType": "library",

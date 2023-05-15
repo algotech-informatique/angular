@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { BaseService } from '../base/base.service';
-import { DomainDto } from '@algotech/core';
+import { DomainDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { EnvService } from '../base/env.service';

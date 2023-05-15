@@ -4,7 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { flatMap } from 'rxjs/operators';
 import * as _ from 'lodash';
-import { EMailDto } from '@algotech/core';
+import { EMailDto } from '@algotech-ce/core';
 import { BaseService } from '../base/base.service';
 import { EnvService } from '../base/env.service';
 

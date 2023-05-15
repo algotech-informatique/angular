@@ -1,4 +1,4 @@
-import { UserDto } from '@algotech/core';
+import { UserDto } from '@algotech-ce/core';
 
 export class LocalProfil {
     id: string;

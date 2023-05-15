@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { flatMap, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { IconDto } from '@algotech/core';
+import { IconDto } from '@algotech-ce/core';
 import { BaseService } from '../base/base.service';
 import { AuthService } from '../auth/auth.service';
 import { EnvService } from '../base/env.service';

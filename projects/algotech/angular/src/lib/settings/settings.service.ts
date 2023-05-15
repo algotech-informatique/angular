@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { SettingsDto, PairDto } from '@algotech/core';
+import { SettingsDto, PairDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { flatMap } from 'rxjs/operators';
 import { BaseCacheService } from '../base/base.cache.service';

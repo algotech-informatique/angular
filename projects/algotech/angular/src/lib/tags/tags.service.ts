@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { TagListDto } from '@algotech/core';
+import { TagListDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { Observable } from 'rxjs';
 import { flatMap, catchError } from 'rxjs/operators';

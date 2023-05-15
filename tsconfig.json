@@ -18,10 +18,10 @@
       "dom"
     ],
     "paths": {
-      "@algotech/angular": [
+      "@algotech-ce/angular": [
         "dist/algotech/angular"
       ],
-      "@algotech/angular/*": [
+      "@algotech-ce/angular/*": [
         "dist/algotech/angular/*"
       ]
     }

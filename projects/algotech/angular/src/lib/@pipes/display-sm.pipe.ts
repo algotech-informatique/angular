@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 import { SettingsDataService } from '../settings/settings-data.service';
-import { SmartModelDto } from '@algotech/core';
+import { SmartModelDto } from '@algotech-ce/core';
 import { TranslateLangDtoService } from '../@services/translate-lang-dto.service';
 
 @Pipe({ name: 'displaySM' })

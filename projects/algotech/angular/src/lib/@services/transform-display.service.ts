@@ -1,4 +1,4 @@
-import { GenericListDto, GenericListValueDto, PairDto, SmartModelDto, SmartPropertyModelDto, SmartPropertyObjectDto } from '@algotech/core';
+import { GenericListDto, GenericListValueDto, PairDto, SmartModelDto, SmartPropertyModelDto, SmartPropertyObjectDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import { SettingsDataService } from '../settings/settings-data.service';
 import * as _ from 'lodash';

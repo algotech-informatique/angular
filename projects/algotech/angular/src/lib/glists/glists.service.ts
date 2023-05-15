@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GenericListDto, GenericListValueDto } from '@algotech/core';
+import { GenericListDto, GenericListValueDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';

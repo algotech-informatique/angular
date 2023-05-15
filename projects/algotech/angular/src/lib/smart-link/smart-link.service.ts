@@ -1,4 +1,4 @@
-import { EMailDto, SmartLinkDto, PairDto } from '@algotech/core';
+import { EMailDto, SmartLinkDto, PairDto } from '@algotech-ce/core';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';

@@ -6,12 +6,12 @@ export class KeyFormaterService {
 
     constructor() { }
 
-    format(inputString: string) {
+    format(inputString: string, replaceDash = false) {
 
         if (!inputString || inputString === '') { return ''; }
 
         inputString = inputString.replace(/[ŧ←↓·=→ł!@#$%^&*(),.?":{}|<>]/g, ''); // erases special caracters
-        inputString = inputString.replace(/\s+|\/|-/g, '_'); // replace spaces, slash and dash by '_'
+        inputString = inputString.replace(replaceDash ? /\s+|\/|-/g : /\s+|\//g, '_'); // replace spaces, slash and dash by '_'
         inputString = inputString.trim();
 
         return _.map(inputString, (letter) => this._replaceCharacter(letter)).join('').trim();

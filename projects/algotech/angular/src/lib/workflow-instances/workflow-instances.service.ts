@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { BaseService } from '../base/base.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { WorkflowInstanceDto, PairDto, WorkflowOperationDto, WorkflowInstanceAbstractDto, WorkflowStackTaskDto } from '@algotech/core';
+import { WorkflowInstanceDto, PairDto, WorkflowOperationDto, WorkflowInstanceAbstractDto, WorkflowStackTaskDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { Observable, of, zip } from 'rxjs';
 import { flatMap, catchError, map } from 'rxjs/operators';

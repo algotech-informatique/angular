@@ -1,4 +1,4 @@
-import { PairDto, PageModelDto } from '@algotech/core';
+import { PairDto, PageModelDto } from '@algotech-ce/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

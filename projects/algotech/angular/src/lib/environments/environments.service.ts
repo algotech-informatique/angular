@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { EnvironmentDto } from '@algotech/core';
+import { EnvironmentDto } from '@algotech-ce/core';
 import { BaseService } from '../base/base.service';
 import { EnvService } from '../base/env.service';
 import { Observable } from 'rxjs';

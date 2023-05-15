@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LangDto } from '@algotech/core';
+import { LangDto } from '@algotech-ce/core';
 import localeFR from '@angular/common/locales/fr';
 import localeEN from '@angular/common/locales/en';
 import localeES from '@angular/common/locales/es';

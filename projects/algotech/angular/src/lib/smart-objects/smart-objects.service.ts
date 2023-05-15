@@ -6,9 +6,9 @@ import * as _ from 'lodash';
 import {
     SmartObjectDto, SmartObjectSearchDto, QuerySearchDto,
     QuerySearchResultDto, FileUploadDto, PairDto, DocumentDto, SearchSODto, IndexationOptionsDto, DeleteDto, ImportSoResultDto, ImportOptionsDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
-import { ATSignatureDto, FileEditDto, ImportSoDto } from '@algotech/core';
+import { ATSignatureDto, FileEditDto, ImportSoDto } from '@algotech-ce/core';
 import { BaseCacheService } from '../base/base.cache.service';
 import { DataService } from '../base/data-service';
 import { DocumentsService } from '../documents/documents.service';

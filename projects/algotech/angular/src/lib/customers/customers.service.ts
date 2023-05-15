@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { BaseService } from '../base/base.service';
-import { CustomerDto } from '@algotech/core';
+import { CustomerDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';

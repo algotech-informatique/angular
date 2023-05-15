@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable } from 'rxjs';
 import { catchError, flatMap } from 'rxjs/operators';
 import * as _ from 'lodash';
-import { ProcessMonitoringSearchDto, ProcessMonitoringDto } from '@algotech/core';
+import { ProcessMonitoringSearchDto, ProcessMonitoringDto } from '@algotech-ce/core';
 import { AuthService } from '../auth/auth.service';
 import { BaseCacheService } from '../base/base.cache.service';
 import { DataService } from '../base/data-service';

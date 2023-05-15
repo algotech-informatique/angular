@@ -3,7 +3,7 @@ import { QueueingSubject } from 'queueing-subject';
 import connect from 'rxjs-websockets';
 import { Observable, Subject, Subscription } from 'rxjs';
 import * as _ from 'lodash';
-import { WsUserDto } from '@algotech/core';
+import { WsUserDto } from '@algotech-ce/core';
 import { retryWhen, delay, catchError } from 'rxjs/operators';
 import { LoadingController } from '@ionic/angular';
 import { LoadingOptions } from '@ionic/core';
@@ -161,6 +161,7 @@ export class SocketManager {
     }
 
     private formatUrl(defaultUrl, key) {
-        return `${this.production ? 'wss' : 'ws'}://${defaultUrl ? window.location.host : ''}${this.WS_URL}?jwt=${key}`;
+        const protocol = window.location.protocol;
+        return `${this.production ? `${protocol === 'http:' ? 'ws' : 'wss'}` : 'ws'}://${defaultUrl ? window.location.host : ''}${this.WS_URL}?jwt=${key}`;
     }
 }

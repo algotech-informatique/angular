@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { ScheduleDto, ScheduleSearchDto, PairDto } from '@algotech/core';
+import { ScheduleDto, ScheduleSearchDto, PairDto } from '@algotech-ce/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { Observable } from 'rxjs';

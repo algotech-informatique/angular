@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { LangDto } from '@algotech/core';
+import { LangDto } from '@algotech-ce/core';
 import { TranslateLangDtoService } from '../@services/translate-lang-dto.service';
 
 @Pipe({ name: 'tlang' })

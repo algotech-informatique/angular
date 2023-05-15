@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import _ from 'lodash';
-import { DocumentIconDto } from '@algotech/core';
+import { DocumentIconDto } from '@algotech-ce/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()

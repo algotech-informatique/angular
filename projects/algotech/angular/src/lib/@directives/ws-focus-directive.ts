@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, Output, EventEmitter, DoCheck, HostListener, AfterContentInit } from '@angular/core';
-import { WsUserDto } from '@algotech/core';
+import { WsUserDto } from '@algotech-ce/core';
 import { WS_USERS_COLORS } from '../mocks/mock-ws-user-color';
 
 const COLOR_DEFAULT = '#000000';
