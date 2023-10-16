@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { flatMap, map, mergeMap, tap } from 'rxjs/operators';
-import { Observable, from, of, zip, throwError } from 'rxjs';
+import { Observable, from, of, zip, throwError, defer } from 'rxjs';
 import * as _ from 'lodash';
 import { Storage } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
@@ -192,19 +192,30 @@ export class DataService {
     }
 
     public getItem(key: string): Observable<any> {
-        if (this.objects[key]) {
-            return of(this.objects[key]);
-        }
-        return from(this.storage.get(key));
+        return defer(() => {
+            if (this.objects[key]) {
+                return of(this.objects[key]);
+            }
+            return from(this.storage.get(key)).pipe(
+                map((object) => {
+                    this.setLocal(key, object);
+                    return object;
+                })
+            );
+        })
     }
 
     public setItem(key: string, object: any): Observable<any> {
+        this.setLocal(key, object);
+        return from(this.storage.set(key, object));
+    }
+
+    private setLocal(key: string, object: any) {
         if (this.keys.indexOf(key) === -1) {
             this.keys.push(key);
         }
         if (this.isCollection(key)) {
             this.objects[key] = object;
         }
-        return from(this.storage.set(key, object));
     }
 }

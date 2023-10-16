@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {
     ApplicationModelsService, AuthAdminService, AuthService, DocumentsService, GeoLocationService, GroupsService, LoaderService, NetworkService, SmartFlowsService, SmartLinkService, SmartObjectsService,
-    SmartTasksService, SocketManager, UsersService, WorkflowModelsService, I18nImportService, RxExtendService, GestionDisplaySettingsService,
+    SmartTasksService, SocketManager, UsersService, WorkflowModelsService, I18nImportService, RxExtendService, GestionDisplaySettingsService, SmartNodesService, EnvironmentsService,
 } from '../../projects/algotech/angular/src/public_api';
 import {
     EMailDto, SmartLinkDto, PageModelDto, PairDto,
@@ -35,11 +35,13 @@ export class AppComponent {
         private geo: GeoLocationService,
         private documentService: DocumentsService,
         private smartFlowsService: SmartFlowsService,
+        private smartNodesService: SmartNodesService,
         private rxExtends: RxExtendService,
         private network: NetworkService,
         private groupsService: GroupsService,
         private socket: SocketManager,
         private i18nService: I18nImportService,
+        private environmentService: EnvironmentsService,
         private gestionDisplaySettingsService: GestionDisplaySettingsService,
     ) {
         this.connected = this.authService.isAuthenticated;
@@ -272,20 +274,20 @@ export class AppComponent {
         const file = event.target.files[0];
         this.smartObjectsService.import(
             file, {
-                uuid: '353b7421-d327-4220-9f9c-85091f8ff9f0',
-                modelKey: 'allTypes',
-                replaceExisting: true,
-                options: {
-                    delimiter: ',',
-                    propertiesFormat: [{
-                        key: 'DATE',
-                        value: 'DD/MM/YYYY'
-                    }, {
-                        key: 'TIME',
-                        value: 'hh[h]mm'
-                    }]
-                }
-            }).subscribe((res) => {
+            uuid: '353b7421-d327-4220-9f9c-85091f8ff9f0',
+            modelKey: 'allTypes',
+            replaceExisting: true,
+            options: {
+                delimiter: ',',
+                propertiesFormat: [{
+                    key: 'DATE',
+                    value: 'DD/MM/YYYY'
+                }, {
+                    key: 'TIME',
+                    value: 'hh[h]mm'
+                }]
+            }
+        }).subscribe((res) => {
             console.log(res);
         })
     }
@@ -294,7 +296,7 @@ export class AppComponent {
         this.i18nService.exportI18nFile(true).subscribe(
             (data: boolean) => {
                 console.log('Export data', data);
-        });
+            });
     }
 
     importI18nFile(event) {
@@ -303,6 +305,14 @@ export class AppComponent {
             (data: boolean) => {
                 console.log('Import data', data);
 
+            });
+    }
+
+    testSearch() {
+        this.smartNodesService.references({
+            ressource: '295da0f9-ad7e-7b2b-12f4-1f42e5fc2263',
+        }, 0, 100).subscribe((res) => {
+            console.log(res);
         });
     }
 
@@ -318,6 +328,11 @@ export class AppComponent {
         ).subscribe((result) => {
             console.log('result', result);
             this.result = result;
-        });        
+        });
+    }
+
+    encryptPassword() {
+        const password = 'toto';
+        return this.environmentService.encryptPasssword(password).subscribe((res) => console.log(res));
     }
 }

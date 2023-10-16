@@ -47,6 +47,12 @@ export class GestionDisplaySettingsService {
 
         const propSetting = _.find(settings.smartModel, { smModel: so.modelKey });
         if (!propSetting) {
+            if (name !== 'primary') {
+                const primary = _.find(this.settingsDataService.settings.plan.general.displayPlanSO.propertyList, { name: 'primary' });
+                if (primary && _.some(primary.smartModel, { smModel: so.modelKey })) {
+                    return of(null);
+                }
+            }
             return this.validateDisplayFromSmartObject(so, name);
         }
         const prop = _.find(so.properties, { key: propSetting.smField });
@@ -71,10 +77,16 @@ export class GestionDisplaySettingsService {
 
         const prop: SmartPropertyModelDto = smartModel.properties.filter((p) => 
             !p.hidden && ['html', 'sys:comment', 'object'].indexOf(p.keyType) === -1)[order];
-        return (prop) ? 
-            this.getDisplayValue(so, so.properties.find((p) => p.key.toUpperCase() === prop.key.toUpperCase()), name) :
-            of (null);
-
+        
+        if (!prop) {
+            return of (null);
+        }
+        const propInstance = so.properties.find((p) => p.key.toUpperCase() === prop.key.toUpperCase());
+            
+        if (!propInstance) {
+            return of (null);
+        }
+        return this.getDisplayValue(so, propInstance, name);
     }
 
     private getDisplayValue(so: SmartObjectDto, prop: SmartPropertyObjectDto, name: 'primary' | 'secondary' | 'tertiary' | 'icon', 

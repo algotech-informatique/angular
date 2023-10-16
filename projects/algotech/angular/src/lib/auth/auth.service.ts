@@ -242,7 +242,7 @@ export class AuthService {
             mergeMap(() => {
                 this.clearToken();
                 // Customize credentials invalidation here
-                return from(this.keycloakService.logout(null/* TODO add redirectUri */)).pipe(tap(() => this._subscription.unsubscribe()));
+                return from(this.keycloakService.logout(this.origin)).pipe(tap(() => this._subscription.unsubscribe()));
             })
         );
 
