@@ -79,7 +79,7 @@ export class AuthService {
                 clientId,
                 url: !!keyCloakurl ? keyCloakurl : `${originUrl.origin}/auth`,
                 realm: !!realm ? realm : 'vision',
-                redirectUri: '',
+                redirectUri: this.origin,
             }
 
             this._subscription = this.keycloak.keycloakEvents$.subscribe({
@@ -103,6 +103,7 @@ export class AuthService {
                 initOptions: {
                     checkLoginIframe: false,
                     adapter: this.platform.is('cordova') ? 'cordova' : 'default',
+                    redirectUri: this.origin,
                 },
 
             })).pipe(
