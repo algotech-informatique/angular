@@ -40,6 +40,20 @@ export class DataService {
         return !!this.storage;
     }
 
+    clearAfterRestore(restoreId: string): Observable<any> {
+        return this.get('cache', 'restoreId').pipe(
+            mergeMap((res: string) => {
+                if (restoreId === res) {
+                    return of(null);
+                }
+
+                return this.clear().pipe(
+                    mergeMap(() => this.save(restoreId, 'cache', 'restoreId'))
+                );
+            }
+        ));
+    }
+
     isCollection(prefix: string): boolean {
         return prefix?.startsWith('$');
     }
@@ -187,7 +201,9 @@ export class DataService {
     }
 
     public removeItem(key: string): Observable<any> {
-        this.keys.splice(this.keys.indexOf(key), 1);
+        if (this.keys.indexOf(key) !== -1) {
+            this.keys.splice(this.keys.indexOf(key), 1);
+        }
         return from(this.storage.remove(key));
     }
 
@@ -198,7 +214,9 @@ export class DataService {
             }
             return from(this.storage.get(key)).pipe(
                 map((object) => {
-                    this.setLocal(key, object);
+                    if (object) {
+                        this.setLocal(key, object);
+                    }
                     return object;
                 })
             );
